@@ -41,7 +41,7 @@ class Residente(models.Model):
     genero = models.CharField(max_length=1, choices=GENDER_CHOICES)
     fono = models.IntegerField()
     email = models.CharField(max_length=50)
-    fecha_ingreso = models.DateTimeField()
+    fecha_ingreso = models.DateField()
     activo = models.BooleanField(default=True)
 
     def __str__(self):
@@ -134,7 +134,7 @@ class Glosa (models.Model):
 class Edificio(models.Model):
     nombre = models.CharField(max_length=30)
     cantidadPisos = models.IntegerField()
-    condominio = models.ForeignKey(Condominio)
+    condominio = models.ForeignKey(Condominio);
 
     def __str__(self):
         return str(self.nombre)
@@ -146,7 +146,7 @@ class Departamento(models.Model):
     cantidadBanos = models.IntegerField(default=1)
     cantidadPiezas = models.IntegerField(default=1)
     walkInCloset = models.BooleanField(default=True)
-    edificio = models.ForeignKey(Edificio, null=False, related_name='edificio')
+    edificio = models.ForeignKey(Edificio)
     porcentajeDominio = models.DecimalField(max_digits=7, decimal_places=6,
                                             validators=[MaxValueValidator(1),
                                                         MinValueValidator(0)])

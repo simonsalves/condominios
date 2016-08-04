@@ -64,7 +64,7 @@ class ResidenteSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class EdificioSerializer(serializers.HyperlinkedModelSerializer):
-    condominio = CondominioSerializer()
+    # condominio = CondominioSerializer()
 
     class Meta:
         model = Edificio
@@ -76,8 +76,7 @@ class EdificioSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class DepartamentoSerializer(serializers.HyperlinkedModelSerializer):
-    edificio = EdificioSerializer()
-
+    # edificio = EdificioSerializer()
     class Meta:
         model = Departamento
         fields = (
